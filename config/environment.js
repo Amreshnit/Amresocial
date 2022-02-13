@@ -23,7 +23,7 @@ const development = {
         port: 587,
         secure: false,
         auth : {
-            user : 'harshv521',
+            user : 'Amresh594',
             pass : '***'//hidden for sometime
         }
     },
@@ -31,7 +31,7 @@ const development = {
     google_client_secret : "EVoeFUxUGtrkhDhlJt8dMsZ4",
     google_call_back_url : "http://localhost:8000/users/auth/google/callback",
     github_cal_back_url : "http://localhost:8000/users/auth/github/callback",
-    jwt_secret : 'codeial',
+    jwt_secret : 'Amresocial',
     morgan : {
         mode : 'dev',
         options : {stream : accessLogstream}
@@ -55,8 +55,8 @@ const production = {
     },
     google_client_id : process.env.SOCIALARRAY_GOOGLE_CLIENT_ID,
     google_client_secret : process.env.SOCIALARRAY_GOOGLE_CLIENT_SECRET,
-    google_call_back_url : "http://socialarray.co.in/users/auth/google/callback",
-    github_cal_back_url : "http://socialarray.co.in/users/auth/github/callback",
+    google_call_back_url : "http://amresocial.co.in/users/auth/google/callback",
+    github_cal_back_url : "http://amresocial.co.in/users/auth/github/callback",
     jwt_secret : process.env.SOCIALARRAY_JWT_SECRET,
     morgan : {
         mode : 'combined',

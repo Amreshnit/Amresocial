@@ -92,7 +92,7 @@ app.set("views", "./views");
 //middleware for passport
 app.use(
   session({
-    name: "codeial",
+    name: "Amresocial",
     //TODO change this in production
     secret: env.session_cookie_key,
     saveUninitialized: false,

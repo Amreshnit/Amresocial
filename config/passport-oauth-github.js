@@ -6,8 +6,8 @@ const env = require('./environment');
 
 //creating passport strategy
 passport.use(new GitHubStrategy({
-    clientID : "0da52c6e74f9aa137cf8",
-    clientSecret : "5029d2245988c4b6196493d2be5aeb6b151b7e93",
+    clientID : "0c91aaefe63af46fe449",
+    clientSecret : "4112e0aaab12b01a845aede3901e3f70dd2861d5",
     callbackURL :  env.github_call_back_url
 },
     function(accessToken, refreshToken, profile, done){
