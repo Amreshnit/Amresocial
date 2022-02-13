@@ -1,0 +1,230 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<link rel="stylesheet" href="<%=assetPath('css/user_profile.css')%>">
+
+<div id="dashboard-one">
+
+    <div id="dashboard-pic-container">
+        <%if(profile_user.avatar){%>
+            <img src="<%= profile_user.avatar %>" alt="<%=profile_user.name%>" width="100"> 
+        <%}else{%>
+            <img src="<%= assetPath('images/codeial-default-avatar2.png') %>" alt="">    
+        <%}%>
+        
+    </div>
+
+    <div id="user-dashboard-name">
+        <h2>
+            <%=profile_user.name%>
+        </h2>
+  </div>
+
+    <div id="edit-profile">
+        <%if(locals.user.id==profile_user.id){%>
+           
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Edit Profile
+              </button> 
+        <%}%>    
+
+        <%if(!locals.user.friendship.find(x => x.toString() === profile_user.id) && (locals.user.id != profile_user.id)){%>
+            <a href="/friends/create/?toid=<%=profile_user._id%>">
+                <button type="button" class="btn btn-primary">
+                    Make Friend
+                </button>
+            </a>
+        <%}%>
+
+       
+        <%if(locals.user.friendship.find(x => x.toString() === profile_user.id)){%>
+           
+                    <a href="/friends/destroy/?toid=<%=profile_user._id%>">
+                        <button type="button" class="btn btn-danger">
+                            Delete Friend
+                        </button>
+                    </a>
+                   
+        <%}%>
+    </div>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Your Profile</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <form action="/users/update/<%=profile_user.id%>" method="POST" enctype="multipart/form-data" id="update-profile-form">
+                        <label for="profile-name">Profile Name</label>
+                        <input type="text" class="form-control" id="profile-name" name="name" placeholder="enter name" value="<%=profile_user.name%>">
+                        <label for="file-upload">Choose Profile Pic</label>
+                        <input type="file" class="form-control-file" id="file-upload" onchange="loadFile(event)" name="avatar" placeholder="Profile Picture">
+                       
+                    </form>  
+                </div>
+                <div id="preview-holder">
+                    <img id="output">
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" form="update-profile-form" >Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+<div id="profile-options">
+    <div id="timeline" class="profile-child" onclick="showTimeline()">
+        <h4><i class="fas fa-stream"></i></h4>
+        <h3>Timeline</h3>
+    </div>
+
+    <div id="friends" class="profile-child" onclick="showFriends()">
+        <h4><i class="fas fa-user-friends"></i></h4>
+        <h3>Friends</h3>
+    </div>
+
+    <div id="alluser" class="profile-child" onclick="showAllUser()">
+        <h4><i class="fas fa-users"></i></h4>
+        <h3>All Users</h3>
+    </div>
+</div>
+
+<div id="display-container">
+
+    <div id="post-display-container">
+        <h2>Your Feed</h2>
+        <div id="post-list-container">
+            <div>
+                <%for(i of posts){%>
+                    
+                        <%- include('_post'); %>
+                <%}%>
+            </div>
+        </div>
+    </div>
+
+    <div id="friend-display-container">
+        <h2>Your Friends</h2>
+        <%for(friends of all_friends){%>
+            <div class="list-group-item list-group-item-action list-group-item-info profile-info">
+                <div class="child-one">
+                 <a href="/users/profile/<%=friends._id%>">
+                     <div class="profile-pic-holder">
+                         <%if(friends.avatar){%>
+                             <img src="<%=friends.avatar%>" alt="image">
+                         <%}else{%>
+                             <img src="<%= assetPath('images/codeial-default-avatar2.png') %>" alt="image">
+                         <%}%>
+                         
+                     </div>
+                 </a>
+                </div>
+                <div class="child-two">
+                 <h3 class="profile-name-holder">
+                     <a href="/users/profile/<%=friends._id%>"><%=friends.name%></a>
+                 </h3>
+                </div>
+                
+            </div>    
+        <%}%>  
+    </div>
+
+    <div id="alluser-display-container">
+        <h2>All Users</h2>
+        <%for(u of all_users){%>
+            <div class="list-group-item list-group-item-action list-group-item-info profile-info">
+               <div class="child-one">
+                <a href="/users/profile/<%=u._id%>">
+                    <div class="profile-pic-holder">
+                        <%if(u.avatar){%>
+                            <img src="<%=u.avatar%>" alt="image">
+                        <%}else{%>
+                            <img src="<%= assetPath('images/codeial-default-avatar2.png') %>" alt="image">
+                        <%}%>
+                        
+                    </div>
+                </a>
+               </div>
+               <div class="child-two">
+                <h3 class="profile-name-holder">
+                    <a href="/users/profile/<%=u._id%>"><%=u.name%></a>
+                </h3>
+               </div>
+               
+            </div>    
+        <%}%>
+    </div>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" 
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<script>
+
+    function showTimeline(){
+        $('#post-display-container').css('display','block');
+        $('#friend-display-container').css('display','none');
+        $('#alluser-display-container').css('display','none');
+    }
+
+    function showFriends(){
+        $('#post-display-container').css('display','none');
+        $('#friend-display-container').css('display','block');
+        $('#alluser-display-container').css('display','none');
+    }
+
+    function showAllUser(){
+        $('#post-display-container').css('display','none');
+        $('#friend-display-container').css('display','none');
+        $('#alluser-display-container').css('display','block');
+    }
+
+    var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
+
+<script src="<%= assetPath('javascript/home_post_comments.js') %>"></script>
+<script src="<%= assetPath('javascript/home_posts.js') %>"></script>
+<script src="<%= assetPath('javascript/toggle_likes.js') %>"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    })
+</script>
+
+<script>
+    $('.post-date').each(function(){
+        let selfdate = $(this).text();
+       selfdate =  selfdate.trim();
+        // console.log(selfdate)
+        // let time = selfdate.substring(17,21);
+        let month = selfdate.substring(4,7);
+        let date = selfdate.substring(8,10);
+        // console.log(date)
+
+        let newDate = date+" "+month
+        // console.log(newDate)
+        $(this).text(newDate)
+    })
+</script>

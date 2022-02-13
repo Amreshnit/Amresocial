@@ -1,0 +1,35 @@
+<header>
+   <div id="flex-header">
+       
+            <div id="site-name">
+                <a href="/" style="text-decoration: none;">
+                    <h4>SocialArray</h4>
+                </a>
+            </div>
+        
+       <div id="links">
+        <%if(locals.user){%>
+            <div class="text">
+                <a href="/messages/chats"><i class="far fa-comments"></i></a>
+            </div>
+            <div class="text">
+                <a href="/users/profile/<%=locals.user._id%>"><%=locals.user.name%></a>
+            </div>    
+            <div class="text">
+                <a href="/users/sign-out">Sign Out</a>
+            </div>
+            
+        <%}
+        else{%>
+            
+            <div class="text">
+                <a href="/users/sign-in">Sign In</a>
+            </div>
+            <div class="text">
+                <a href="/users/sign-up">Sign Up</a>
+            </div>
+    
+        <%}%>
+       </div>
+   </div>
+</header>

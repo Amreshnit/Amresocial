@@ -1,0 +1,23 @@
+footer{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: black;
+    height: 42px;
+    width: 100%;
+    #flex-footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+
+        .bottom-text{
+            margin: 5px 10px 0px 20px;
+            a{
+                text-decoration: none;
+                color: white;
+                font-size: 1.2rem;
+                text-transform: capitalize;
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="<%= assetPath('css/comment.css') %>">
+
+<li id="comment-<%=comment._id %>">
+    <div class="media m-2 border-bottom">
+        <h3 class="profile-pic-holder">
+            <%if(comment.user.avatar){%>
+                <img src="<%=comment.user.avatar%>" alt="image">
+            <%}else{%>
+                <img src="<%= assetPath('images/codeial-default-avatar2.png') %>" alt="image">
+            <%}%>
+        </h3>
+
+
+        <div class="media-body">
+            <div class="d-flex flex-row justify-content-between" style="height: 22px; width: 150px;">
+                <div class="comment-user-name">
+                    <h5 class="mt-0"><%= comment.user.name %></h5>
+                </div>
+                <div>
+                    <%if(locals.user && locals.user.id==comment.user.id){%>
+                        <p>
+                            <a class="delete-comment-button" href="/comments/destroy/<%=comment._id %>">X</a>
+                        </p>    
+                    <%}%>
+                </div>
+            </div>
+
+           <div class="comment-content">
+            <%= comment.content %>
+           </div>
+            <small>
+                <%if(locals.user){%>
+                    <% if(comment.likes.find(x=> x.user == locals.user.id)){ %>
+                        <a class = "toggle-like-button" data-likes =  "<%=comment.likes.length%>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment" style="text-decoration: none;">
+                            <%=comment.likes.length%> <i class="fas fa-thumbs-up"></i>
+                        </a>  
+                        <% } else{ %>
+                            <a class = "toggle-like-button" data-likes =  "<%=comment.likes.length%>" href="/likes/toggle/?id=<%=comment._id%>&type=Comment" style="text-decoration: none;">
+                                <%=comment.likes.length%> <i class="far fa-thumbs-up"></i>
+                            </a>  
+                        <% } %>   
+                <%}else{%>
+                    <%=comment.likes.length%> <i class="far fa-thumbs-up"></i>
+                <%}%>
+            </small>
+        </div>
+    </div>  
+</li>
+

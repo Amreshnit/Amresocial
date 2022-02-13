@@ -1,0 +1,221 @@
+.right-text {
+  text-align: right;
+}
+
+body {
+  background-color: #eeeeee;
+}
+
+#home-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 65px;
+}
+#home-flex .home-flex-child .card {
+  width: 450px;
+}
+#home-flex #user-dashboard {
+  width: 330px;
+}
+#home-flex #user-dashboard #absolute-div-dashboard {
+  position: fixed;
+}
+#home-flex #user-dashboard #dashboard-pic {
+  height: 250px;
+  width: 250px;
+  margin: auto;
+}
+#home-flex #user-dashboard #dashboard-pic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+#home-flex #user-dashboard #friends-dashboard-count h5 {
+  font-size: 1rem;
+}
+#home-flex #post-info {
+  width: 500px;
+}
+#home-flex #post-info .card-body textarea {
+  width: 80%;
+}
+#home-flex #post-info .card-body #flex-input {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+#home-flex #post-info .card-body #flex-input div {
+  width: 200px;
+}
+#home-flex #post-info .card-body #preview-image {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  margin-top: 15px;
+}
+#home-flex #post-info .card-body #preview-image img {
+  width: 100%;
+  height: 100%;
+}
+#home-flex #user-info {
+  width: 240px;
+  margin-right: 10px;
+}
+#home-flex #user-info #absolute-div-user {
+  position: fixed;
+  right: 34px;
+  top: 70px;
+  height: 80vh;
+  overflow-y: scroll;
+}
+#home-flex #user-info #absolute-div-user::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+#home-flex #user-info h4 {
+  margin: 0px;
+  text-align: center;
+}
+#home-flex #user-info .list-group-item {
+  margin: 0px;
+  text-align: center;
+  padding: 7px 20px;
+}
+#home-flex #user-info .list-group-item .profile-pic-holder {
+  width: 45px;
+  height: 45px;
+  margin: 0px 5px;
+}
+#home-flex #user-info .list-group-item .profile-pic-holder img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+}
+#home-flex #user-info .list-group-item .profile-name-holder {
+  margin: 0px;
+  padding-top: 5px;
+}
+#home-flex #user-info .list-group-item .profile-name-holder a {
+  text-decoration: none;
+  color: black;
+  text-transform: capitalize;
+}
+#home-flex #user-info .list-group-item .profile-name-holder a:hover {
+  color: #7e6c91;
+}
+
+.welcome {
+  height: auto;
+}
+.welcome #carouselExampleCaptions {
+  top: 0px !important;
+  width: 100% !important;
+  height: 600px !important;
+  margin: auto;
+}
+.welcome #carouselExampleCaptions #color-change {
+  color: white;
+}
+.welcome .carousel-inner {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: auto !important;
+}
+.welcome #flexbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.welcome #flexbox .card {
+  box-shadow: 3px 5px 10px black;
+}
+.welcome #flexbox .card-name {
+  font-size: large;
+}
+.welcome #sign {
+  text-align: center;
+  height: 500px;
+  background-image: url("../images/back-1-218a72a938.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px 0px;
+}
+.welcome #sign h1 {
+  margin: 30px 0px;
+  color: #e5edf2;
+}
+.welcome #sign .signed {
+  margin: 50px 20px;
+  width: 100px;
+  width: 100px;
+  background-color: transparent;
+  border: none;
+  border: 1px solid white;
+  color: white;
+}
+.welcome #sign .signed:focus {
+  outline: none;
+}
+.welcome .welcome_text {
+  font-family: "Times New Roman", Times, serif;
+  font-size: x-large;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
+.welcome .welcome_text .underline {
+  margin-left: 60px;
+}
+
+/*-------------------------------------media queries---------------------------------------------------------*/
+@media only screen and (max-width: 1100px) {
+  #home-flex #user-info {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 930px) {
+  #home-flex #post-info {
+    margin: auto;
+  }
+  #home-flex #user-dashboard {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  #home-flex #post-info .card-body textarea {
+    width: 80%;
+  }
+  #home-flex .home-flex-child .card {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #home-flex #post-info .card-body textarea {
+    height: 70px;
+  }
+  #home-flex .home-flex-child .card {
+    width: 330px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  #home-flex .home-flex-child .card {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  #home-flex .home-flex-child .card {
+    width: 260px;
+  }
+}

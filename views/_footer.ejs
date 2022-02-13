@@ -1,0 +1,13 @@
+<footer>
+  
+  <div id="flex-footer">
+    <div class="bottom-text">
+      <a href="/">Home</a>
+    </div>
+    <%if(locals.user){%>
+    <div class="bottom-text">
+      <a href="/users/profile/<%=locals.user._id%>">Profile</a>
+    </div>
+    <%}%>
+  </div>
+</footer>

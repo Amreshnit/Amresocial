@@ -1,0 +1,35 @@
+
+<link rel="stylesheet" href="<%= assetPath('css/user_sign_in.css') %>">
+<div class="box-form">
+    <div class="left">
+        <div class="overlay">
+        <h1>Hello World.</h1>
+        <p></p>
+        <span>
+            <p>Login with Google and make your experience faster</p>
+            <a href="/users/auth/google"><i class="fab fa-google"></i></a>
+            <a href="/users/auth/github"><i class="fab fa-github"></i></a>
+            <!-- <a href="/users/auth/facebook"><i class="fab fa-facebook"></i></a> -->
+        </span>
+        </div>
+    </div>
+    
+    
+    <form action="/users/create-session" method="POST">
+
+        <div class="right">
+            <h5>Login</h5>
+            <p>Don't have an account? <a href="/users/sign-up">Creat Your Account</a> it takes less than a minute</p>
+            <div class="inputs">
+                <input type="email" name="email" placeholder="Email-id" required>
+                <br>
+                <input type="password" name="password" placeholder="password" required>
+            </div>
+                
+                <br><br>
+                <button type="submit">Login</button>
+        </div>
+
+    </form>
+    
+</div>
