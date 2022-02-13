@@ -214,3 +214,16 @@
 [0mGET /messages/chats [32m200[0m 153.248 ms - 2341[0m
 [0mGET /users/sign-out [36m302[0m 85.704 ms - 46[0m
 [0mGET / [32m200[0m 273.774 ms - 8009[0m
+[0mGET / [32m200[0m 313.362 ms - 7758[0m
+[0mGET / [36m304[0m 430.540 ms - -[0m
+[0mGET /favicon.ico [33m404[0m 54.293 ms - 150[0m
+[0mGET /users/sign-in [32m200[0m 49.139 ms - 2679[0m
+[0mGET / [36m304[0m 272.640 ms - -[0m
+[0mGET /users/sign-in [36m304[0m 51.726 ms - -[0m
+[0mGET /users/sign-up [36m304[0m 47.703 ms - -[0m
+[0mGET /users/sign-in [36m304[0m 45.183 ms - -[0m
+[0mPOST /users/create-session [36m302[0m 101.593 ms - 46[0m
+[0mGET / [32m200[0m 416.706 ms - 34137[0m
+[0mGET /uploads/users/avatars/avatar-1635023866986 [33m404[0m 94.534 ms - 181[0m
+[0mGET /messages/chats [32m200[0m 198.518 ms - 2691[0m
+[0mGET /messages/chatroom?friend=6159a2d0ce03350c78eb6c59 [32m200[0m 263.655 ms - 505[0m
